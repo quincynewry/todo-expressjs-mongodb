@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TODO</title>
+</head>
+
+<body>
+    <h1>TODO</h1>
+
+    <div>
+        <form action="/todo" method="POST">
+            <div class="form-group row">
+                <label for="inputTodo" class="col-sm-2 col-form-label">What do you need to do?</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="inputTodo" name="text" placeholder="Enter text here...">
+                    <button class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div>
+        <ul class="quotes">
+            <% for(var i=0; i<todo.length; i++) {%>
+                <li class="quote">
+                    <form action="todo/done" method="POST">
+                        <span>
+                            <%= todo[i].text %>
+                        </span>
+                        <input type="hidden" name="text" value="<%= todo[i].text %>" />
+                        <button class="">Done</button>
+                    </form>
+                </li>
+                <% } %>
+        </ul>
+    </div>
+</body>
+
+</html>
